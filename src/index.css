@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ink-900 text-cream-100 font-sans;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-cream-50;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #c9a04e 50%, #ecd98a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #c9a04e 0%,
+      #ecd98a 25%,
+      #d4af37 50%,
+      #ecd98a 75%,
+      #c9a04e 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .ember-glow {
+    box-shadow: 0 0 40px rgba(232, 93, 47, 0.15), 0 0 80px rgba(232, 93, 47, 0.08);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(201, 160, 78, 0.12);
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 0.15s;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 0.3s;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 0.45s;
+  }
+
+  .reveal-delay-4 {
+    transition-delay: 0.6s;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a04e;
+}
